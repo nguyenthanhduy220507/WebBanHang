@@ -1,0 +1,27 @@
+/* Giao diện tablet */
+@media (max-width: 1024px) {
+    .hidden {
+        display: none;
+    }
+    #header {
+        padding: 0 0;
+    }
+    #header .logo a {
+        padding-left: 10px;
+    }
+    #header .cart a, 
+    #header .user a {
+        padding-right: 10px;
+    }
+    #footer span,
+    #footer a {
+        padding: 0 10px;
+    }
+}
+/* Giao diện < mobile */
+@media (max-width: 739px) {
+    #content .sort-by-option,
+    #content .sort-by-price {
+        text-align: center;
+    }
+}

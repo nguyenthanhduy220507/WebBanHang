@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OmegaN</title>
+    <!-- Link css -->
+    <!-- Icon css -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/grid.css">
+    <link rel="stylesheet" href="./assets/fontawesome-free-5.15.4-web/css/all.css">
+    <link rel="stylesheet" href="./assets/css/index.css">
+    <link rel="stylesheet" href="./assets/css/login.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
+</head>
+<body>
+    <div id="main">
+        <!-- Begin: Header -->
+        <div id="header" class="grid">
+            <div class="row">
+                <div class="col l-3 m-3 sm-0 logo">
+                    <!-- Logo -->
+                    <a href=""><img src="./assets/img/omega.png" alt="logo"></a>
+                </div>
+                <div class="col l-6 m-6 sm-6 search-box">
+                    <!-- Thanh tìm kiếm -->
+                    <input onchange="searchProducts();" type="search" name="search" id="search-js" placeholder="Search...">
+                    <!-- Nút tìm kiếm -->
+                    <a onclick="searchProducts();"><i class="fas fa-search"></i></a>
+                </div>
+                <div class="col l-1 m-1 sm-2 cart">
+                    <!-- Nút giỏ hàng / đặt hàng -->
+                    <a onclick="showCart();"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+                <div class="col l-1 m-1 sm-2 user">
+                    <!-- Nút chuyển sang chế độ quản lý (admin) -->
+                    <a class="admin" href="./admin.html" style="display: none"><i class="fas fa-tools"></i></a>
+                </div>
+                <div class="col l-1 m-1 sm-2 user">
+                    <!-- Nút đăng xuất -->
+                    <a class="sign-out" onclick="logout();" style="display: none"><i class="fas fa-sign-out-alt"></i></a>
+                    <!-- Nút đăng nhập / đăng ký -->
+                    <a class="sign-in" onclick="showLogin();"><i class="fas fa-user"></i></a>
+                </div>
+            </div>
+        </div>
+        <!-- End: Header -->
+        <!-- Begin: Slider -->
+        <div id="slider">
+            <!-- Chuyển ảnh mỗi 2 giây -->
+            <div class="slideshow-container">
+                <!-- Ảnh slider -->
+                <div class="mySlides fade">
+                    <div class="number-text">1 / 4</div>
+                    <img src="./assets/img/slider1.webp">
+                </div>
+                <!-- Ảnh slider -->
+                <div class="mySlides fade">
+                    <div class="number-text">2 / 4</div>
+                    <img src="./assets/img/slider2.webp">
+                </div>
+                <!-- Ảnh slider -->
+                <div class="mySlides fade">
+                    <div class="number-text">3 / 4</div>
+                    <img src="./assets/img/slider3.webp">
+                </div>
+                <!-- Ảnh slider -->
+                <div class="mySlides fade">
+                    <div class="number-text">4 / 4</div>
+                    <img src="./assets/img/slider4.webp">
+                </div>
+            </div>
+            <div style="text-align:center">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+            <script src="./assets/javascript/slider.js"></script>
+        </div>
+        <!-- End: Slider -->
+        <!-- Begin: Content -->
+        <div id="content">
+            <!-- Các tùy chọn sắp xếp -->
+            <div id="sort" class="grid wide">
+                <div class="row">
+                    <!-- Sắp xếp theo lựa chọn -->
+                    <div class="col l-2 m-2 sm-12 sort-by-option">
+                        <select name="Sort" id="sort1" onchange="sortProducts();">
+                            <option id="default" value="BT">Sắp xếp theo</option>
+                            <option id="ascending" value="TD">Giá Tăng Dần</option>
+                            <option id="descending" value="GD">Giá Giảm Dần</option>
+                            <option id="AtoZ" value="AZ">A-Z</option>
+                            <option id="ZtoA" value="ZA">Z-A</option>
+                        </select>
+                    </div>
+                    <!-- Sắp xếp lựa chọn theo khoảng giá -->
+                    <div class="col l-10 m-10 sm-12 sort-by-price">
+                        <input type="text" id="min-price" placeholder="Giá từ">
+                        <input type="text" id="max-price" placeholder="Đến">
+                        <a onclick="searchProducts();"><i class="fas fa-filter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Các sản phẩm -->
+            <div class="main-content grid wide">
+                <!-- Chưa sản phẩm -->
+                <div class="row product-list"></div>
+            </div>
+            <!-- Phân trang -->
+            <div class="pagination"></div>
+        </div>
+        <!-- End: Content -->
+        <!-- Begin: Footer -->
+        <div id="footer">
+            <div class="grid wide">
+                <div class="row">
+                    <div class="col l-4 m-4 sm-6">
+                        <span>Sản phẩm</span>
+                        <ul>
+                            <li><a href="">Samsung</a></li>
+                            <li><a href="">Iphone</a></li>
+                            <li><a href="">Huawei</a></li>
+                        </ul>
+                    </div>
+                    <div class="col l-4 m-4 sm-6">
+                        <span>Chính sách</span>
+                        <ul>
+                            <li><a href="">Bảo hành</a></li>
+                            <li><a href="">Vận chuyển</a></li>
+                            <li><a href="">Thanh toán</a></li>
+                        </ul>
+                    </div>
+                    <div class="col l-4 m-4 sm-0">
+                        <span>Theo dõi</span>
+                        <ul>
+                            <li><a href="https://www.facebook.com/"><i class="fab fa-facebook"></i> facebook</a></li>
+                            <li><a href="https://www.instagram.com/"><i class="fab fa-instagram"></i> instagram</a></li>
+                            <li><a href="https://www.youtube.com/"><i class="fab fa-youtube"></i> youtube</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End footer -->
+    <!-- Giao diện giỏ hàng / đặt hàng -->
+    <div class="modal-cart"></div>
+    <!-- Giao diện thông tin sản phẩm -->
+    <div class="modal-product"></div>
+    <!-- Giao diện đăng nhập / đăng ký -->
+    <div id="login-register"></div>
+    <script type="text/javascript" src="./assets/javascript/index.js"></script>
+    <script type="text/javascript" src="./assets/javascript/login.js"></script>
+    <script type="text/javascript" src="./assets/javascript/search.js"></script>
+</body>
+</html>
